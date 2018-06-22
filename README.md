@@ -4,4 +4,4 @@
 
 ## HTML Binds
 
-lib for bind js and html, example usege in  tests/binds.html
+Lib for bind js and html, example usage in tests/binds.html
