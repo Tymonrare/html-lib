@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>HTML bind test</title>
+  <script type="text/javascript" src="../lib/sprintf.js"></script>
+  <script type="text/javascript" src="../lib/utils.js"></script>
+  <script type="text/javascript" src="../lib/events.js"></script>
+  <script type="text/javascript" src="../lib/lang_bind.js"></script>
+</head>
+<body onload="load();">
+  <div id="test_el">
+    <div class="bindable">%c intro_text%:</div>
+    <ul>
+      <li> %c dynamic_value%: %v simple_value_test%</li>
+      <li> %c dynamic_value_format%: %v round_value_test f('0[3:2].3)%</li>
+      <li> %c dynamic_value_animated%: %v animated_value_test a%</li>
+    </ul>
+    <div class="bindable">%c intro_text2%:</div>
+    <ul class="bindable">
+      <li> %c dynamic_value%: %v simple_value_test%</li>
+      <li> %c dynamic_value_format%: %v round_value_test f('0[3:2].3)%</li>
+      <li> %c dynamic_value_animated%: %v animated_value_test a%</li>
+    </ul>
+    <button onclick="flipLang()" class="bindable">%c ru_en%<a>
+  </div>
+
+  <script>
+    //===
+    //Code you need to emplement
+    function load(){
+      utils.bind.val.dynamic = values;
+      utils.bind.defineDynamic();
+
+      utils.bind.val.static = lang_en;
+
+      utils.bind.parseBindableChilds(document.getElementById("test_el"));
+
+      initTestValAnimations();
+    }
+
+    //===
+    //Declarations
+    var values = {
+      simple_value_test : 10,
+      round_value_test : 1.2345,
+      animated_value_test : 1
+    };
+
+    var lang_en = {
+      "dynamic_value" : "Dynamic value",
+      "dynamic_value_format" : "Dynamic value format",
+      "dynamic_value_animated" : "Dynamic value animated",
+      "intro_text" : "Example usage of binds. You only have to add constants in you html. For example",
+      "intro_text2" : "Becomes",
+      "ru_en" : "RU/EN"
+    }
+    var lang_ru = {
+      "dynamic_value" : "Динамичное значение",
+      "dynamic_value_format" : "Отформатированное динамичное значение",
+      "dynamic_value_animated" : "Анимированное динамичное значение",
+      "intro_text" : "Пример использования привязок. Вам нужно только добавить нужные константы в ваш HTML. Например:",
+      "intro_text2" : "Становится",
+      "ru_en" : "Рус/Англ"
+    }
+
+    //===
+    //Test
+    function initTestValAnimations(){
+        setInterval(function(){
+          values.simple_value_test += 1;
+        }, 1000)
+        setInterval(function(){
+          values.round_value_test += 0.001;
+        }, 1)
+        setInterval(function(){
+          values.animated_value_test += (Math.random()-0.5)*100;
+        }, 1000)
+    }
+
+    function flipLang() {
+      if(utils.bind.val.static == lang_en)
+        utils.bind.val.static = lang_ru;
+      else
+        utils.bind.val.static = lang_en;
+
+      utils.bind.parseBindableChilds(document.getElementById("test_el"));
+    }
+  </script>
+</body>
+</html>
