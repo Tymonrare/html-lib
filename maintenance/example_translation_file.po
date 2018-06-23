@@ -1,0 +1,29 @@
+# Timofey <Tymonr@yandex.ru>, 2018. #zanata
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"PO-Revision-Date: 2018-06-23 04:40+0000\n"
+"Last-Translator: Timofey <Tymonr@yandex.ru>\n"
+"Language-Team: English (United States)\n"
+"Language: en_US\n"
+"X-Generator: Zanata 4.4.5\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+msgid "welcome_header"
+msgstr "Welcome!"
+
+msgid "welcome_short_description"
+msgstr "You on my personal page"
+
+msgid "welcome_intro"
+msgstr ""
+"В первую очередь хочу поблагодарить проект HTML5 UP за отличный дизайн, "
+"благодаря которому этот сайт так хорошо смотрится и ощущается. \n"
+"Если вы ищете исполнителя в свой проект, или программиста в команду - здесь "
+"представлены мое резюме и портфель.\n"
+"Если же просто проходили мимо и ищете что-нибудь интересное - ниже на "
+"странице будут самые интересные, на мой взгляд, реализации разных идей."
+
+
