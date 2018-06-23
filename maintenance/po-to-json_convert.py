@@ -30,20 +30,17 @@ for line in content:
         else:
             lastid = ""
     else:
-        reg = re.search('msgstr "(.+)"', line)
+        reg = re.search('"(.*)"', line)
         if(reg):
-            laststr = reg.group(1)
+            laststr += reg.group(1)
         else:
+            laststr = laststr.replace('\\n', '&#010;') # we have to replace it with html "new-line" because python saves '\n' as '\\n'
+            data[lastid] = laststr
+            lastid = ""
             laststr = ""
 
-    if lastid != "" and laststr != "":
-        data[lastid] = laststr
-        lastid = ""
-        laststr = ""
-        
 print(data)
 
 # save file
 with open(json_file, 'w') as json_file:
-    json.dump(data, json_file)
-
+    json.dump(data, json_file, sort_keys=False, indent=2, ensure_ascii=False, separators=(',', ': '))
