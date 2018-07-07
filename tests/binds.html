@@ -30,13 +30,17 @@
     //===
     //Code you need to emplement
     function load(){
+		//Init dynamic values
       utils.bind.val.dynamic = values;
       utils.bind.defineDynamic();
 
+	  //add statuc
       utils.bind.val.static = lang_en;
 
+	  //init html container
       utils.bind.parseBindableChilds(document.getElementById("test_el"));
 
+	  //demo for this test
       initTestValAnimations();
     }
 
